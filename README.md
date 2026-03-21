@@ -279,6 +279,7 @@ GET /api/moods
 > Screenshots from each phase are documented in the project build log.
 
 - ✅ WSL terminal — project folder creation and npm init
+- <img width="2541" height="1510" alt="Screenshot 2026-03-20 095455" src="https://github.com/user-attachments/assets/5a8ee368-ba21-40f5-94a2-929273643581" />
 - ✅ npm install — all packages installed, 0 vulnerabilities
 - ✅ server.js — nodemon running, all 4 endpoints listed
 - ✅ curl tests — all endpoints returning correct JSON
