@@ -18,34 +18,34 @@ export default function MoodSelector({ onMoodSelect }) {
     setSelected(mood.name);
 
     try {
-      // Save mood to database
-      await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/mood/save`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            mood:     mood.name,
-            emoji:    mood.emoji,
-            message:  "",
-            playlist: ""
-          })
-        }
-      );
-
-      // Get mood response
+      // Step 1: Get mood response first
       const moodRes  = await fetch(
         `${process.env.NEXT_PUBLIC_API_URL}/api/mood/${mood.name}`
       );
       const moodData = await moodRes.json();
 
-      // Get a quote
+      // Step 2: Save to database WITH message and playlist
+      await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/mood/save`,
+        {
+          method:  "POST",
+          headers: { "Content-Type": "application/json" },
+          body:    JSON.stringify({
+            mood:     mood.name,
+            emoji:    mood.emoji,
+            message:  moodData.message,
+            playlist: moodData.playlist
+          })
+        }
+      );
+
+      // Step 3: Get a quote
       const quoteRes  = await fetch(
         `${process.env.NEXT_PUBLIC_API_URL}/api/quote`
       );
       const quoteData = await quoteRes.json();
 
-      // Pass results up to parent page
+      // Step 4: Pass all results up to parent page
       onMoodSelect({ mood: moodData, quote: quoteData });
 
     } catch (error) {
@@ -57,10 +57,10 @@ export default function MoodSelector({ onMoodSelect }) {
 
   return (
     <div style={{
-      display: "flex",
-      gap: "16px",
+      display:        "flex",
+      gap:            "16px",
       justifyContent: "center",
-      flexWrap: "wrap"
+      flexWrap:       "wrap"
     }}>
       {moods.map((mood) => (
         <button
