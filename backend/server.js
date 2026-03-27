@@ -57,18 +57,23 @@ app.get('/api/joke/:category', async (req, res) => {
 // ─────────────────────────────────────────
 app.get('/api/quote', async (req, res) => {
   try {
-    const response = await axios.get('https://zenquotes.io/api/random');
+    const response = await axios.get('https://zenquotes.io/api/random', {
+      headers: {
+        'User-Agent': 'Mozilla/5.0'
+      }
+    });
     const data = response.data[0];
     res.json({
       success: true,
-      quote: data.q,
-      author: data.a
+      quote:   data.q,
+      author:  data.a
     });
   } catch (error) {
-    res.status(500).json({
-      success: false,
-      message: 'Failed to fetch quote',
-      error: error.message
+    // Fallback quote if API fails
+    res.json({
+      success: true,
+      quote:   'The only way to do great work is to love what you do.',
+      author:  'Steve Jobs'
     });
   }
 });
