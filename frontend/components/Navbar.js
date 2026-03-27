@@ -11,9 +11,17 @@ export default function Navbar() {
       <h1 style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#4f46e5' }}>
         🎭 MoodCast
       </h1>
-      <a href="/history" style={{ color: '#4b5563', textDecoration: 'none' }}>
-        Mood History
-      </a>
+      <nav style={{
+        background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+        borderRadius: "16px",
+        padding: "12px 20px",
+        color: "white",
+        boxShadow: "0 4px 15px rgba(101, 127, 243, 0.4)"
+      }}>
+        <a href="/history" style={{ color: '#e7ecf3', textDecoration: 'none' }}>
+          Mood History
+        </a>
+      </nav>
     </nav>
   );
 }
