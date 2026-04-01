@@ -36,7 +36,7 @@ export default function HistoryList() {
   );
 
   if (moods.length === 0) return (
-    <p style={{ textAlign: 'center', color: '#6b7280', padding: '40px' }}>
+    <p style={{ textAlign: 'center', color: '#060691', padding: '40px' }}>
       No moods saved yet. Go select one!
     </p>
   );

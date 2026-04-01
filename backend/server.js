@@ -160,6 +160,26 @@ app.get('/api/moods', async (req, res) => {
 });
 
 // ─────────────────────────────────────────
+// ENDPOINT 7: Delete all moods from database
+// DELETE /api/moods
+// ─────────────────────────────────────────
+app.delete('/api/moods', async (req, res) => {
+  try {
+    await pool.query('DELETE FROM moods');
+    res.json({
+      success: true,
+      message: 'Mood history cleared'
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: 'Failed to clear history',
+      error: error.message
+    });
+  }
+});
+
+// ─────────────────────────────────────────
 // START THE SERVER
 // ─────────────────────────────────────────
 app.listen(PORT, () => {
