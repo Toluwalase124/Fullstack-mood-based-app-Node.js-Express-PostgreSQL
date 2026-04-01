@@ -24,19 +24,19 @@ export default function HistoryList() {
   }, []);
 
   if (loading) return (
-    <p style={{ textAlign: 'center', color: '#6b7280', padding: '40px' }}>
+    <p style={{ textAlign: 'center', color: '#4B5563', padding: '40px' }}>
       Loading your mood history...
     </p>
   );
 
   if (error) return (
-    <p style={{ textAlign: 'center', color: '#ef4444', padding: '40px' }}>
+    <p style={{ textAlign: 'center', color: '#C0392B', padding: '40px' }}>
       {error}
     </p>
   );
 
   if (moods.length === 0) return (
-    <p style={{ textAlign: 'center', color: '#6b7280', padding: '40px' }}>
+    <p style={{ textAlign: 'center', color: '#4B5563', padding: '40px' }}>
       No moods saved yet. Go select one!
     </p>
   );
@@ -49,6 +49,7 @@ export default function HistoryList() {
           borderRadius:    '12px',
           padding:         '20px',
           boxShadow:       '0 2px 4px rgba(0,0,0,0.06)',
+          borderLeft:      '3px solid #C0392B',
           display:         'flex',
           alignItems:      'center',
           justifyContent:  'space-between'
@@ -56,19 +57,37 @@ export default function HistoryList() {
           <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
             <span style={{ fontSize: '2.5rem' }}>{entry.emoji}</span>
             <div>
-              <p style={{ fontWeight: 'bold', color: '#111827', textTransform: 'capitalize' }}>
+              <p style={{
+                fontWeight: 'bold',
+                color: '#1A1A2E',
+                textTransform: 'capitalize',
+                margin: 0
+              }}>
                 {entry.mood}
               </p>
-              <p style={{ fontSize: '0.875rem', color: '#6b7280' }}>
+              <p style={{
+                fontSize: '0.875rem',
+                color: '#4B5563',
+                margin: '4px 0 0 0'
+              }}>
                 {entry.message || 'No message'}
               </p>
             </div>
           </div>
           <div style={{ textAlign: 'right' }}>
-            <p style={{ fontSize: '0.75rem', color: '#9ca3af' }}>
+            <p style={{
+              fontSize: '0.75rem',
+              color: '#1A1A2E',
+              fontWeight: '600',
+              margin: 0
+            }}>
               {new Date(entry.created_at).toLocaleDateString()}
             </p>
-            <p style={{ fontSize: '0.75rem', color: '#a5b4fc' }}>
+            <p style={{
+              fontSize: '0.75rem',
+              color: '#C0392B',
+              margin: '4px 0 0 0'
+            }}>
               {new Date(entry.created_at).toLocaleTimeString()}
             </p>
           </div>

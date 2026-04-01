@@ -13,29 +13,27 @@ export default function HistoryPage() {
           <h1 style={{
             fontSize:     '2.5rem',
             fontWeight:   'bold',
-            color:        '#101111',
+            color:        '#190bb7',
             marginBottom: '12px'
           }}>
             Your Mood History
           </h1>
-          <p style={{ color: '#111111', fontSize: '1.1rem' }}>
+          <p style={{ color: '#060691', fontSize: '1.1rem' }}>
             Every mood you have logged, most recent first
           </p>
         </div>
 
         <HistoryList />
 
-        <div style={{ textAlign: 'center', marginTop: '32px' }}>
-          <a href="/" style={{
-            color:          '#4f46e5',
-            textDecoration: 'none',
-            fontWeight:     '600'
-          }}>
-            ← Back to Home
-          </a>
-        </div>
-
+        <div style={{
+  display: 'flex',
+  justifyContent: 'flex-end',
+  marginTop: '32px',
+  paddingRight: '4px'
+}}>
+</div>
       </div>
     </div>
   );
 }
+

@@ -20,12 +20,12 @@ export default function HomePage() {
           <h1 style={{
             fontSize:     "2.5rem",
             fontWeight:   "bold",
-            color:        "#111827",
+            color:        "#190bb7",
             marginBottom: "12px"
           }}>
             How are you feeling today?
           </h1>
-          <p style={{ color: "#6b7280", fontSize: "1.1rem" }}>
+          <p style={{ color: "#060691", fontSize: "1.1rem" }}>
             Select your mood and get a personalised response
           </p>
         </div>

@@ -43,11 +43,11 @@ export default function DayCard() {
 
   return (
     <div style={{
-      background:    "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+      background:    "linear-gradient(135deg, #332a74 0%, #aa1a10  100%)",
       borderRadius:  "16px",
       padding:       "24px 32px",
       color:         "white",
-      boxShadow:     "0 4px 15px rgba(102, 126, 234, 0.4)"
+      boxShadow:     "0 4px 15px rgba(26, 26, 46, 0.4)"
     }}>
       <div style={{
         display:        "flex",
